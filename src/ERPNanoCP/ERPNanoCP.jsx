@@ -3,7 +3,8 @@ import { CP_NAV, CP_PAGE_MAP } from "./nav.js";
 import UserList    from "./pages/UserList.jsx";
 import GroupMaster from "./pages/GroupMaster.jsx";
 import DatabaseMaster from "./pages/DatabaseMaster.jsx";
-import PageMaster  from "./pages/PageMaster.jsx";
+import PageMaster  from "./pages/PageMaster/index.jsx";
+import GroupPages  from "./pages/GroupPages.jsx";
 
 const API_URL   = "https://sila.silasystem.com:7103/General/GeneralAPI/"
 const BASE_BODY = {
@@ -259,6 +260,7 @@ function Shell({ user, onLogout }) {
     if (activePage === "groups")      return <GroupMaster/>
     if (activePage === "databases")   return <DatabaseMaster/>
     if (activePage === "pages")       return <PageMaster/>
+    if (activePage === "grouppages")  return <GroupPages/>
     return (
       <div style={{ background:T.white, borderRadius:12, padding:48,
         border:`0.5px solid ${T.border}`, textAlign:"center" }}>
