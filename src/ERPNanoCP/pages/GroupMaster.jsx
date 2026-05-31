@@ -1,27 +1,6 @@
 import { useState, useEffect } from "react"
 import { DataGrid } from "../../shared/components/DataGrid"
-
-const API_URL   = "https://sila.silasystem.com:7103/General/GeneralAPI/"
-const BASE_BODY = {
-  AppVersionWeb:"225", AppVersionAndroid:"225", AppVersionIos:"225",
-  AppVersionDesktop:"225", FireBaseToken:"", PlatForm:"web", deviceID:"", IP:"192.168.1.3"
-}
-
-async function apiCall(operation, lineData = null) {
-  const res = await fetch(API_URL, {
-    method: "POST",
-    headers: { "Accept":"application/json","content-type":"application/json","Sp_Name":"CP.APICPOperation" },
-    body: JSON.stringify({
-      ...BASE_BODY,
-      Operation: operation,
-      LineData:  lineData ? JSON.stringify(lineData) : null,
-      User:      sessionStorage.getItem("FullName") || ""
-    })
-  })
-  const d = await res.json()
-  console.log(operation, d)
-  return d
-}
+import { apiCall } from "../shared/api.js"
 
 // ── Columns ───────────────────────────────────────────────────────────────────
 const COLUMNS = [
