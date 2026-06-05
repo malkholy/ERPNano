@@ -129,39 +129,37 @@ function Login({ onLogin }) {
   return (
     <div style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",
       background:"linear-gradient(135deg,#111827,#1f2937)",padding:24}}>
-      <div style={{width:"100%",maxWidth:420,background:"#fff",borderRadius:24,
-        padding:"36px 32px",boxShadow:"0 30px 80px rgba(0,0,0,.35)"}}>
+      <div style={{width:"100%",maxWidth:480,background:"#fff",borderRadius:28,
+        padding:"40px 36px",boxShadow:"0 30px 80px rgba(0,0,0,.35)"}}>
         <div style={{textAlign:"center",marginBottom:28}}>
-          <div style={{width:60,height:60,borderRadius:18,margin:"0 auto 14px",
+          <div style={{width:68,height:68,borderRadius:22,margin:"0 auto 16px",
             background:"linear-gradient(135deg,#f97316,#ea580c)",
-            display:"grid",placeItems:"center",fontSize:22,fontWeight:900,color:"#fff"}}>CP</div>
-          <div style={{fontSize:26,fontWeight:900,color:"#111827"}}>ERP Nano</div>
-          <div style={{display:"inline-block",marginTop:6,fontSize:11,fontWeight:700,
-            letterSpacing:"1px",color:"#f97316",background:"#ffedd5",
-            padding:"3px 12px",borderRadius:20}}>CONTROL PANEL</div>
+            display:"grid",placeItems:"center",fontSize:24,fontWeight:900,color:"#fff"}}>ERP</div>
+          <div style={{fontSize:30,fontWeight:900,color:"#111827"}}>ERP Nano</div>
+          <div style={{fontSize:15,color:"#64748b",marginTop:6}}>Sign in to continue</div>
         </div>
         {error && (
           <div style={{background:"#fee2e2",border:"0.5px solid #fca5a5",borderRadius:10,
             padding:"9px 12px",color:"#dc2626",fontSize:13,marginBottom:16}}>⚠️ {error}</div>
         )}
         <div style={{marginBottom:14}}>
-          <label style={{display:"block",fontSize:11,fontWeight:900,color:"#64748b",
-            letterSpacing:".5px",marginBottom:6}}>USERNAME</label>
+          <label style={{display:"block",fontSize:15,fontWeight:800,color:"#111827",
+            marginBottom:8}}>Email</label>
           <input value={username} onChange={e=>{setUsername(e.target.value);setError("")}}
-            onKeyDown={e=>e.key==="Enter"&&doLogin()} placeholder="Enter username" autoFocus
-            style={{width:"100%",height:46,border:"1px solid #e5e7eb",borderRadius:12,
-              background:"#f9fafb",padding:"0 14px",fontSize:14,fontWeight:700,
+            onKeyDown={e=>e.key==="Enter"&&doLogin()} placeholder="admin@demo.com" autoFocus
+            style={{width:"100%",height:52,border:"1px solid #e5e7eb",borderRadius:14,
+              background:"#f9fafb",padding:"0 16px",fontSize:14,fontWeight:700,
               outline:"none",fontFamily:"inherit"}}/>
         </div>
         <div style={{marginBottom:24}}>
-          <label style={{display:"block",fontSize:11,fontWeight:900,color:"#64748b",
-            letterSpacing:".5px",marginBottom:6}}>PASSWORD</label>
+          <label style={{display:"block",fontSize:15,fontWeight:800,color:"#111827",
+            marginBottom:8}}>Password</label>
           <div style={{position:"relative"}}>
             <input value={password} onChange={e=>{setPassword(e.target.value);setError("")}}
               onKeyDown={e=>e.key==="Enter"&&doLogin()}
-              placeholder="Enter password" type={showPass?"text":"password"}
-              style={{width:"100%",height:46,border:"1px solid #e5e7eb",borderRadius:12,
-                background:"#f9fafb",padding:"0 40px 0 14px",fontSize:14,fontWeight:700,
+              placeholder="••••••" type={showPass?"text":"password"}
+              style={{width:"100%",height:52,border:"1px solid #e5e7eb",borderRadius:14,
+                background:"#f9fafb",padding:"0 44px 0 16px",fontSize:14,fontWeight:700,
                 outline:"none",fontFamily:"inherit"}}/>
             <button onClick={()=>setShowPass(v=>!v)}
               style={{position:"absolute",right:12,top:"50%",transform:"translateY(-50%)",
@@ -171,10 +169,11 @@ function Login({ onLogin }) {
           </div>
         </div>
         <button onClick={doLogin} disabled={loading}
-          style={{width:"100%",height:48,border:0,borderRadius:14,fontFamily:"inherit",
+          style={{width:"100%",height:54,border:0,borderRadius:16,fontFamily:"inherit",
             background:loading?"#94a3b8":"linear-gradient(135deg,#f97316,#ea580c)",
-            color:"#fff",fontSize:15,fontWeight:900,cursor:loading?"not-allowed":"pointer"}}>
-          {loading?"⏳ Signing in…":"Sign In →"}
+            color:"#fff",fontSize:16,fontWeight:900,cursor:loading?"not-allowed":"pointer",
+            marginTop:8}}>
+          {loading?"⏳ Signing in…":"Sign In"}
         </button>
         <div style={{textAlign:"center",marginTop:20,fontSize:11,color:"#9ca3af"}}>
           ERPNano CP · v2.25 · Sila System
